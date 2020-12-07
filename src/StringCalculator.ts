@@ -8,11 +8,17 @@ class StringCalculator {
     if(numberString.includes('//')) {
       delimiter = numberString[2]
     }
+    console.log(numberString
+      .replace(/\n|\r/g, delimiter)
+      .split(delimiter))
 
     return numberString
-      .replace(/\n|\r/g, ",")
-      .split(",")
+      .replace(/\n|\r/g, delimiter)
+      .split(delimiter)
       .reduce((sum: number, numToAdd: string) => {
+        if (Number.isNaN(parseInt(numToAdd, 10))) {
+          return sum
+        }
         return sum + parseInt(numToAdd, 10);
       }, 0);
   }
