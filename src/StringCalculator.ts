@@ -3,6 +3,11 @@ class StringCalculator {
     if (numberString === "") {
       return 0;
     }
+    
+    let delimiter = ','
+    if(numberString.includes('//')) {
+      delimiter = numberString[2]
+    }
 
     return numberString
       .replace(/\n|\r/g, ",")

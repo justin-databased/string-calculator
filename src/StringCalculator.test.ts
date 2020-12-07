@@ -31,8 +31,14 @@ describe("Add strings", () => {
   });
 
   it("should handle new lines between numbers", () => {
-    const testString = "1/n2,3";
+    const testString = "1\n2,3";
     const result = stringCalculator.add(testString);
     expect(result).toBe(6);
+  });
+
+  it("should support dynamic delimiter", () => {
+    const testString = "“//;\n1;2";
+    const result = stringCalculator.add(testString);
+    expect(result).toBe(3);
   });
 });
