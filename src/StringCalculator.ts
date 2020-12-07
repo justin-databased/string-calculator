@@ -1,8 +1,13 @@
 class StringCalculator {
   public add(numberString: string): number {
-    const splitString = numberString.split(',')
-    splitString.reduce(sum, )
-    console.log('splitString ', splitString)
+    if (numberString === '') {
+      return 0
+    }
+
+    return numberString.split(',')
+      .reduce((sum: number, numToAdd: string) => {
+      return sum + parseInt(numToAdd, 10)
+    }, 0)
   }
 }
 
