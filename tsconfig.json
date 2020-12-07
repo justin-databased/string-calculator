@@ -1,0 +1,6 @@
+{
+  "files": ["StringCalculator.ts"],
+  "compilerOptions": {
+    "outDir": "dist"
+  }
+}
