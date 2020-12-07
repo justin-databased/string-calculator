@@ -1,13 +1,15 @@
 class StringCalculator {
   public add(numberString: string): number {
-    if (numberString === '') {
-      return 0
+    if (numberString === "") {
+      return 0;
     }
 
-    return numberString.split(',')
+    return numberString
+      .replace(/\n|\r/g, ",")
+      .split(",")
       .reduce((sum: number, numToAdd: string) => {
-      return sum + parseInt(numToAdd, 10)
-    }, 0)
+        return sum + parseInt(numToAdd, 10);
+      }, 0);
   }
 }
 
