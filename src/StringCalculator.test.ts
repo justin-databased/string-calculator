@@ -47,4 +47,10 @@ describe("Add strings", () => {
     const errorMessage = "negatives not allowed: -3"
     expect(() => stringCalculator.add(testString)).toThrow(errorMessage)
   })
+
+  it("should throw an exception which includes all negatives", () => {
+    const testString = "//;\n1;2;-3;-5";
+    const errorMessage = "negatives not allowed: -3, -5"
+    expect(() => stringCalculator.add(testString)).toThrow(errorMessage)
+  })
 });

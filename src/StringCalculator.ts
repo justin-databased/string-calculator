@@ -4,14 +4,14 @@ class StringCalculator {
       return 0;
     }
 
-    return this.getNumberStringToSum(numberString)
+    try {
+      return this.getNumberStringToSum(numberString)
       .reduce((sum: number, numToAdd: string) => {
-        if (Number.isNaN(parseInt(numToAdd, 10))) {
-          return sum;
-        }
-        if(parseInt(numToAdd))
-        return sum + parseInt(numToAdd, 10);
+        return sum + this.getValidNumber(numToAdd);
       }, 0);
+    } catch(error) {
+      this.getNumberStringToSum(numberString).filter(num => parseInt(num, 10) < 0 ?)
+    }
   }
 
   private getNumberStringToSum(numberString: string): string[] {
@@ -25,6 +25,17 @@ class StringCalculator {
     return numberStringToSum.replace(/\n|\r/g, delimiter).split(delimiter)
   }
 
+  private getValidNumber(numToAdd: string): number {
+    if (Number.isNaN(parseInt(numToAdd, 10))) {
+      return 0
+    }
+
+    if(parseInt(numToAdd, 10) < 0) {
+      throw new Error("negatives not allowed: ");
+    } 
+
+    return parseInt(numToAdd, 10)
+  }
 }
 
 export default StringCalculator;
