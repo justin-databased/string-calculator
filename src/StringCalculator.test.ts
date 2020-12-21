@@ -44,13 +44,20 @@ describe("Add strings", () => {
 
   it("should throw an exception negatives not allowed for negative numbers", () => {
     const testString = "//;\n1;2;-3";
-    const errorMessage = "negatives not allowed: -3"
-    expect(() => stringCalculator.add(testString)).toThrow(errorMessage)
-  })
+    const errorMessage = "negatives not allowed: -3";
+    expect(() => stringCalculator.add(testString)).toThrow(errorMessage);
+  });
 
   it("should throw an exception which includes all negatives", () => {
     const testString = "//;\n1;2;-3;-5";
-    const errorMessage = "negatives not allowed: -3, -5"
-    expect(() => stringCalculator.add(testString)).toThrow(errorMessage)
-  })
+    const errorMessage = "negatives not allowed: -3, -5";
+    expect(() => stringCalculator.add(testString)).toThrow(errorMessage);
+  });
+  describe("Get Called Count", () => {
+    it("Should return the correct number of time called", () => {
+      const testStrings = ["1,1", "", "123", "1\n2,3"];
+      testStrings.forEach((testString) => stringCalculator.add(testString));
+      expect(stringCalculator.getCalledCount()).toBe(4);
+    });
+  });
 });

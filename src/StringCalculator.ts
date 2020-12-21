@@ -1,5 +1,15 @@
 class StringCalculator {
+  private calledCount: number;
+  constructor() {
+    this.calledCount = 0;
+  }
+
+  public getCalledCount(): number {
+    return this.calledCount;
+  }
+
   public add(numberString: string): number {
+    this.calledCount++;
     if (numberString === "") {
       return 0;
     }
