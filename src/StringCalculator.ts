@@ -46,6 +46,10 @@ class StringCalculator {
       return 0;
     }
 
+    if (parseInt(numToAdd, 10) > 1000) {
+      return 0;
+    }
+
     if (parseInt(numToAdd, 10) < 0) {
       throw new Error("negatives not allowed: ");
     }

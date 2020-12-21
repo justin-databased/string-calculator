@@ -60,4 +60,9 @@ describe("Add strings", () => {
       expect(stringCalculator.getCalledCount()).toBe(4);
     });
   });
+  it("Should ignore numbers bigger than 1000", () => {
+    const testString = "1\n2,3,1000,1001";
+    const result = stringCalculator.add(testString);
+    expect(result).toBe(1006);
+  });
 });
