@@ -37,7 +37,7 @@ describe("Add strings", () => {
   });
 
   it("should support dynamic delimiter", () => {
-    const testString = "“//;\n1;2";
+    const testString = "//;\n1;2";
     const result = stringCalculator.add(testString);
     expect(result).toBe(3);
   });
