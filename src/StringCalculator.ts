@@ -4,23 +4,27 @@ class StringCalculator {
       return 0;
     }
 
-    let delimiter = ",";
-    let numberStringToSum = numberString;
-    if (numberString.includes("//")) {
-      delimiter = numberString[2];
-      numberStringToSum = numberString.split("").slice(3).join();
-    }
-
-    return numberStringToSum
-      .replace(/\n|\r/g, delimiter)
-      .split(delimiter)
+    return this.getNumberStringToSum(numberString)
       .reduce((sum: number, numToAdd: string) => {
         if (Number.isNaN(parseInt(numToAdd, 10))) {
           return sum;
         }
+        if(parseInt(numToAdd))
         return sum + parseInt(numToAdd, 10);
       }, 0);
   }
+
+  private getNumberStringToSum(numberString: string): string[] {
+    let delimiter = ",";
+    let numberStringToSum = numberString;
+    if (numberString.includes("//")) {
+      delimiter = numberString[2];
+      numberStringToSum = numberString.split('\n')[1]
+    }
+
+    return numberStringToSum.replace(/\n|\r/g, delimiter).split(delimiter)
+  }
+
 }
 
 export default StringCalculator;

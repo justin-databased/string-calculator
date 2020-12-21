@@ -41,4 +41,10 @@ describe("Add strings", () => {
     const result = stringCalculator.add(testString);
     expect(result).toBe(3);
   });
+
+  it("should throw an exception negatives not allowed for negative numbers", () => {
+    const testString = "//;\n1;2;-3";
+    const errorMessage = "negatives not allowed: -3"
+    expect(() => stringCalculator.add(testString)).toThrow(errorMessage)
+  })
 });
